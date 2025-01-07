@@ -1,0 +1,11 @@
+{
+    "manifest_version": 3,
+    "name": "MDN Search Hub",
+    "description": "Search Hub for MDN",
+    "version": "1.0",
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": "mdn-icon.png"
+    }
+  }
+  
