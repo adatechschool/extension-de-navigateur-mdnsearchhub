@@ -1,5 +1,7 @@
 const SEARCH_BTN = document.getElementById('search-btn')
-const USER_REQUEST = document.getElementById('search-bar')
+const SEARCH_BAR = document.getElementById('search-bar')
+SEARCH_BAR.focus()
+
 let history = JSON.parse(window.localStorage.getItem('history')) || []
 
 function openTab(query){
@@ -16,15 +18,29 @@ function addToHistory(query){
     window.localStorage.setItem('history', JSON.stringify(history))
 }
 
-SEARCH_BTN.addEventListener('click', () => {
-    let USER_VALUE = USER_REQUEST.value
-    openTab(USER_VALUE)
-    addToHistory(USER_VALUE)
-})
+function createHistory(){
+    const HISTORY_CONTAINER = document.getElementById('history-container')
 
-USER_REQUEST.addEventListener('keydown', function(event) {
+    history.forEach(item => {
+        let link = document.createElement('a')
+        let url = `https://developer.mozilla.org/fr/search?q=${item}&locale=fr&locale=en-US`
+        link.setAttribute('href',url)
+        link.innerHTML = item
+        HISTORY_CONTAINER.appendChild(link)
+    });
+}
+
+function eventHandler(){
+    let USER_REQUEST = SEARCH_BAR.value
+    openTab(USER_REQUEST)
+    addToHistory(USER_REQUEST)
+}
+
+SEARCH_BTN.addEventListener('click', eventHandler)
+
+SEARCH_BAR.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
-        let USER_VALUE = USER_REQUEST.value
-        openTab(USER_VALUE)
-        addToHistory(USER_VALUE)
+        eventHandler()
     }})
+    
+createHistory()
