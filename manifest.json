@@ -6,6 +6,13 @@
     "action": {
       "default_popup": "index.html",
       "default_icon": "mdn-icon.png"
-    }
+    },
+    "permissions": [
+     "storage"
+  ],
+  "host_permissions":[
+    "https://*/*",
+    "http://*/*"
+  ]
   }
   

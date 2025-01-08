@@ -8,7 +8,8 @@ function openTab(query){
 }
 
 function addToHistory(query){
-    history.push(USER_VALUE)
+    history.push(query)
+    window.localStorage.setItem(query, query)
     return history
 }
 
