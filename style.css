@@ -3,8 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  background-color: peachpuff;
+  background-color: #FFFFFF;
   width: 20rem;
   height: 5rem;
 }
