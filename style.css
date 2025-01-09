@@ -1,11 +1,50 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Ajout d'une bordure fine et noire à l'extension */
+
+/* Applique une bordure fine et noire au body (zone principale de l'extension) */
+body {
+  border: 1px solid black; /* Bordure noire de 1px */
+  border-radius: 5px; /* Coins légèrement arrondis pour un meilleur rendu visuel */
+  padding: 10px; /* Ajoute de l'espace entre le contenu et la bordure */
+  margin: 0; /* Évite les marges inutiles autour de l'extension */
+  background-color: #f9f9f9; /* Couleur de fond légèrement grise pour contraster avec la bordure */
 }
 
-body {
-  background-color: #FFFFFF;
-  width: 20rem;
-  height: 5rem;
+/* Ajout d'une bordure aux éléments principaux pour tester */
+#search-container {
+  border: 1px dashed black; /* Bordure pointillée pour tester visuellement l'espace */
+  padding: 10px; /* Ajoute de l'espace intérieur */
+  margin-bottom: 10px; /* Espace entre le conteneur et l'historique */
+}
+
+#history-container {
+  border: 1px dashed black; /* Bordure pointillée pour séparer les historiques */
+  padding: 10px; /* Espace intérieur pour bien voir le contenu */
+  max-height: 200px; /* Limite la hauteur pour éviter un débordement */
+  overflow-y: auto; /* Ajoute une barre de défilement si nécessaire */
+}
+
+/* Ajout d'un espace entre le label et la barre de recherche */
+#search-container label {
+  display: block; /* Force le label à occuper une ligne complète */
+  margin-bottom: 8px; /* Ajoute un espace de 8px sous le label */
+  font-weight: bold; /* Rend le texte du label en gras */
+  font-size: 1.2rem; /* Augmente légèrement la taille du texte du label */
+}
+
+/* Style spécifique pour l'underscore dans le titre */
+.highlight-m {
+  color: #0069C2; /* Couleur bleu spécifique */
+  font-weight: bold; /* Texte en gras */
+}
+
+/* Rendre l'underscore plus épais */
+.highlight-m.underscore {
+  font-size: 1.5rem; /* Augmente légèrement la taille de l'underscore */
+  font-weight: bolder; /* Épaissit davantage l'underscore */
+}
+
+/* Style pour le "S" de Search */
+.highlight-s {
+  color: #0069C2; /* Couleur bleu spécifique, identique au M */
+  font-weight: bold; /* Texte en gras */
 }
