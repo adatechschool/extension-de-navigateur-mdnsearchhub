@@ -37,9 +37,10 @@ function createHistory() {
 
 function eventHandler() {
   let USER_REQUEST = SEARCH_BAR.value;
-  openTab(USER_REQUEST);
-  addToHistory(USER_REQUEST);
-}
+  if (USER_REQUEST) {
+    openTab(USER_REQUEST);
+    addToHistory(USER_REQUEST);
+}}
 
 SEARCH_BTN.addEventListener("click", eventHandler);
 
