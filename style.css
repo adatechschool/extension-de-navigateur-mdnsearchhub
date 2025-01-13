@@ -32,7 +32,7 @@ body {
 }
 
 /* Style spécifique pour l'underscore dans le titre */
-.highlight-m {
+.highlight {
   color: #0069C2; /* Couleur bleu spécifique */
   font-weight: bold; /* Texte en gras */
 }
@@ -43,8 +43,3 @@ body {
   font-weight: bolder; /* Épaissit davantage l'underscore */
 }
 
-/* Style pour le "S" de Search */
-.highlight-s {
-  color: #0069C2; /* Couleur bleu spécifique, identique au M */
-  font-weight: bold; /* Texte en gras */
-}
