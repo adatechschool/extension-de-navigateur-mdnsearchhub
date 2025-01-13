@@ -3,6 +3,11 @@
     "name": "MDN Search Hub",
     "description": "Search Hub for MDN",
     "version": "1.0",
+    "icons": {
+      "16": "mdn-icon.png",
+      "48": "mdn-icon.png",
+      "128": "mdn-icon.png"
+    },
     "action": {
       "default_popup": "index.html",
       "default_icon": "mdn-icon.png"
@@ -14,5 +19,5 @@
     "https://*/*",
     "http://*/*"
   ]
-  }
+}
   
