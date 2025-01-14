@@ -18,6 +18,24 @@ function addToHistory(query) {
   window.localStorage.setItem("history", JSON.stringify(history));
 }
 
+const dropdown = document.querySelector(".dropdown");
+const blockLinks = document.querySelector(".bloc-links");
+const btnDrop = document.querySelector(".btn-top");
+
+let isOpen = false; // Indicateur pour vérifier l'état du dropdown
+
+btnDrop.addEventListener("click", toggleDropDown);
+
+function toggleDropDown() {
+  if (!isOpen) {
+    blockLinks.style.height = `${blockLinks.scrollHeight}px`;
+    isOpen = true;
+  } else {
+    blockLinks.style.height = "0";
+    isOpen = false;
+  }
+}
+
 function createHistory() {
   const HISTORY_CONTAINER = document.getElementById("history-container");
   let ulElement = document.createElement("ul");
@@ -35,12 +53,74 @@ function createHistory() {
   });
 }
 
+const FAV_BTN = document.getElementById("addFav");
+let favorites = JSON.parse(window.localStorage.getItem("favorites")) || [];
+
+function addToFav() {
+  window.localStorage.setItem("favorites", JSON.stringify(favorites));
+}
+
+function createFav() {
+  const FAV_CONTAINER = document.getElementById("favorites");
+  FAV_CONTAINER.innerHTML = "";
+  let favList = document.createElement("ul");
+
+  favorites.forEach((item) => {
+    let fav = document.createElement("a");
+    let favPoint = document.createElement("li");
+    fav.setAttribute("href", window.localStorage.getItem(item));
+    fav.setAttribute("target", "_blank");
+    fav.innerText = item;
+    favPoint.appendChild(fav);
+    favList.appendChild(favPoint);
+    FAV_CONTAINER.appendChild(favList);
+
+    let deleteBtn = document.createElement("button");
+    deleteBtn.innerHTML = "&times;";
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.addEventListener("click", () => removeFavorite(item));
+    favPoint.appendChild(deleteBtn);
+  });
+}
+
+function getFavName(url) {
+  let favName = prompt("How do you want to name this favorite ?");
+
+  if (favName) {
+    favorites.push(favName);
+    window.localStorage.setItem(favName, url);
+    //return favName
+  }
+}
+
+function removeFavorite(query) {
+  favorites = favorites.filter((item) => item !== query);
+  window.localStorage.setItem("favorites", JSON.stringify(favorites));
+  createFav();
+}
+
+FAV_BTN.addEventListener("click", function () {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    const activeTabUrl = tabs[0].url;
+
+    getFavName(activeTabUrl);
+
+    createFav();
+    addToFav();
+    //favorites.push(activeTabUrl)
+    //document.getElementById('urlOutput').textContent = activeTabUrl;
+  });
+});
+
+createFav();
+
 function eventHandler() {
   let USER_REQUEST = SEARCH_BAR.value;
   if (USER_REQUEST) {
     openTab(USER_REQUEST);
     addToHistory(USER_REQUEST);
-}}
+  }
+}
 
 SEARCH_BTN.addEventListener("click", eventHandler);
 

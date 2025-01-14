@@ -9,12 +9,37 @@
   </head>
   <body>
     <!-- <h1>Mdn Search Hub</h1> -->
-    <h1><span class="highlight">M</span>dn<span class="highlight-m underscore">_</span> <span class="highlight">S</span>earch <span class="highlight">H</span>ub</h1>
+    <h1>
+      <span class="highlight">M</span>dn<span class="highlight-m underscore"
+        >_</span
+      >
+      <span class="highlight">S</span>earch <span class="highlight">H</span>ub
+    </h1>
+
+    <button id="addFav">Add to Favorite</button>
+
     <div id="search-container">
       <label for="site-search">What are you looking for ?</label>
       <input type="search" id="search-bar" name="q" placeholder="Search..." />
       <button id="search-btn">Search</button>
+
+      <div class="dropdown">
+        <button class="btn-top">
+          <h4>Favoris</h4>
+          <img src="chevron-down.svg" alt="chevron icon" />
+        </button>
+        <div class="bloc-links" id="favorites">
+          <!-- <ul>
+            <li><a href="#">Lien 1</a></li>
+            <li><a href="#">Lien 2</a></li>
+            <li><a href="#">Lien 3</a></li>
+          </ul> -->
+        </div>
+      </div>
     </div>
-    <div id="history-container"></div>
+
+    <div id="history-container">
+      <h3 class="history">History</h3>
+    </div>
   </body>
 </html>

@@ -33,7 +33,7 @@ body {
 
 /* Style spécifique pour l'underscore dans le titre */
 .highlight {
-  color: #0069C2; /* Couleur bleu spécifique */
+  color: #0069c2; /* Couleur bleu spécifique */
   font-weight: bold; /* Texte en gras */
 }
 
@@ -42,4 +42,50 @@ body {
   font-size: 1.5rem; /* Augmente légèrement la taille de l'underscore */
   font-weight: bolder; /* Épaissit davantage l'underscore */
 }
+.dropdown {
+  max-width: 100px;
+  border-radius: 5px;
+  color: #f1f1f1;
+  background: #0069c2;
+  overflow: hidden;
+}
 
+/* bouton favoris */
+.btn-top {
+  padding: 5px;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0069c2;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.bloc-links {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.3s ease-in-out;
+}
+
+.bloc-links ul {
+  padding: 0 20px;
+  margin: 0;
+}
+.bloc-links li {
+  list-style-type: none;
+  padding: 5px 0;
+}
+
+.bloc-links li a {
+  font-size: 16px;
+  color: #f1f1f1;
+  margin-left: 5px;
+  text-decoration: none;
+}
+
+.bloc-links li a:hover {
+  text-decoration: underline;
+}
