@@ -3,9 +3,9 @@
   --background-color: #f9f9f9;
   --border-color: #ccc;
   --text-color: #333;
-  --secondary-text-color: #555;
+  --secondary-text-color: #f9f9f9;
   --hover-color: #004a99;
-  --font-family: 'Arial', sans-serif;
+  --font-family: "Arial", sans-serif;
 }
 
 /* Style global du body */
@@ -69,6 +69,15 @@ body {
   text-decoration: underline;
 }
 
+#addFav {
+  margin-bottom: 6px;
+  background-color: #0069c2;
+  color: #ffffff;
+  border-radius: 5px;
+}
+#search-btn {
+  margin: 6px 10px;
+}
 /* Style des éléments de mise en valeur dans le titre */
 .highlight {
   color: var(--primary-color);
@@ -95,12 +104,12 @@ body {
 
 /* Bouton favoris */
 .btn-top {
-  padding: 10px 15px;
   width: 100%;
+  height: 25px;
   border: none;
   background: var(--primary-color);
   color: #ffffff;
-  font-size: 18px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -110,7 +119,8 @@ body {
 }
 
 .btn-top:hover {
-  background: var(--hover-color);
+  background: var(--primary-color);
+  color: rgb(205, 205, 210);
 }
 
 /* Bloc de liens (pour la gestion des favoris) */
@@ -118,6 +128,10 @@ body {
   height: 0;
   overflow: hidden;
   transition: height 0.3s ease-in-out;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .bloc-links ul {
@@ -137,4 +151,11 @@ body {
 
 .bloc-links li a:hover {
   text-decoration: underline;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  font-size: 15px;
+  color: var(--text-color);
 }
