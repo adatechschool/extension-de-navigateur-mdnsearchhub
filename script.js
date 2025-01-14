@@ -78,7 +78,10 @@ function createFav() {
     let deleteBtn = document.createElement("button");
     deleteBtn.innerHTML = "&times;";
     deleteBtn.classList.add("delete-btn");
-    deleteBtn.addEventListener("click", () => removeFavorite(item));
+    deleteBtn.addEventListener("click", () => {
+      removeFavorite(item);
+      showConfirmation("Favorite removed successfully");
+    });
     favPoint.appendChild(deleteBtn);
   });
 }
@@ -89,7 +92,7 @@ function getFavName(url) {
   if (favName) {
     favorites.push(favName);
     window.localStorage.setItem(favName, url);
-    //return favName
+    showConfirmation("Favorite added successfully");
   }
 }
 
@@ -107,8 +110,6 @@ FAV_BTN.addEventListener("click", function () {
 
     createFav();
     addToFav();
-    //favorites.push(activeTabUrl)
-    //document.getElementById('urlOutput').textContent = activeTabUrl;
   });
 });
 
@@ -131,3 +132,11 @@ SEARCH_BAR.addEventListener("keydown", function (event) {
 });
 
 createHistory();
+
+function showConfirmation(message) {
+  const confirmationMessage = document.getElementById("confirmation-message");
+  confirmationMessage.textContent = message;
+  setTimeout(() => {
+    confirmationMessage.textContent = "";
+  }, 2000);
+}

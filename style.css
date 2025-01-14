@@ -1,72 +1,122 @@
-/* Ajout d'une bordure fine et noire à l'extension */
+:root {
+  --primary-color: #0069c2;
+  --background-color: #f9f9f9;
+  --border-color: #ccc;
+  --text-color: #333;
+  --secondary-text-color: #555;
+  --hover-color: #004a99;
+  --font-family: 'Arial', sans-serif;
+}
 
-/* Applique une bordure fine et noire au body (zone principale de l'extension) */
+/* Style global du body */
 body {
-  border: 1px solid black; /* Bordure noire de 1px */
-  border-radius: 5px; /* Coins légèrement arrondis pour un meilleur rendu visuel */
-  padding: 10px; /* Ajoute de l'espace entre le contenu et la bordure */
-  margin: 0; /* Évite les marges inutiles autour de l'extension */
-  background-color: #f9f9f9; /* Couleur de fond légèrement grise pour contraster avec la bordure */
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin: 0;
+  padding: 15px;
 }
 
-/* Ajout d'une bordure aux éléments principaux pour tester */
+/* Conteneur de la recherche */
 #search-container {
-  border: 1px dashed black; /* Bordure pointillée pour tester visuellement l'espace */
-  padding: 10px; /* Ajoute de l'espace intérieur */
-  margin-bottom: 10px; /* Espace entre le conteneur et l'historique */
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #ffffff;
 }
 
-#history-container {
-  border: 1px dashed black; /* Bordure pointillée pour séparer les historiques */
-  padding: 10px; /* Espace intérieur pour bien voir le contenu */
-  max-height: 200px; /* Limite la hauteur pour éviter un débordement */
-  overflow-y: auto; /* Ajoute une barre de défilement si nécessaire */
-}
-
-/* Ajout d'un espace entre le label et la barre de recherche */
 #search-container label {
-  display: block; /* Force le label à occuper une ligne complète */
-  margin-bottom: 8px; /* Ajoute un espace de 8px sous le label */
-  font-weight: bold; /* Rend le texte du label en gras */
-  font-size: 1.2rem; /* Augmente légèrement la taille du texte du label */
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--primary-color);
 }
 
-/* Style spécifique pour l'underscore dans le titre */
+/* Conteneur d'historique */
+#history-container {
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 15px;
+  max-height: 250px;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+/* Style des éléments dans l'historique */
+#history-container ul {
+  padding: 0;
+  margin: 0;
+}
+
+#history-container li {
+  list-style-type: none;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+#history-container li a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+#history-container li a:hover {
+  color: var(--hover-color);
+  text-decoration: underline;
+}
+
+/* Style des éléments de mise en valeur dans le titre */
 .highlight {
-  color: #0069c2; /* Couleur bleu spécifique */
-  font-weight: bold; /* Texte en gras */
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
-/* Rendre l'underscore plus épais */
 .highlight-m.underscore {
-  font-size: 1.5rem; /* Augmente légèrement la taille de l'underscore */
-  font-weight: bolder; /* Épaissit davantage l'underscore */
+  font-size: 1.3rem;
+  font-weight: bolder;
 }
+
+/* Dropdown menu */
 .dropdown {
   max-width: 100px;
+  background: var(--primary-color);
+  color: var(--text-color);
   border-radius: 5px;
-  color: #f1f1f1;
-  background: #0069c2;
   overflow: hidden;
 }
 
-/* bouton favoris */
+.dropdown:hover {
+  background: var(--hover-color);
+}
+
+/* Bouton favoris */
 .btn-top {
-  padding: 5px;
+  padding: 10px 15px;
   width: 100%;
   border: none;
-  outline: none;
-  font-size: 20px;
+  background: var(--primary-color);
+  color: #ffffff;
+  font-size: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #0069c2;
-  cursor: pointer;
   border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
+
+.btn-top:hover {
+  background: var(--hover-color);
+}
+
+/* Bloc de liens (pour la gestion des favoris) */
 .bloc-links {
-  overflow: hidden;
   height: 0;
+  overflow: hidden;
   transition: height 0.3s ease-in-out;
 }
 
@@ -74,15 +124,14 @@ body {
   padding: 0 20px;
   margin: 0;
 }
+
 .bloc-links li {
-  list-style-type: none;
   padding: 5px 0;
 }
 
 .bloc-links li a {
   font-size: 16px;
-  color: #f1f1f1;
-  margin-left: 5px;
+  color: var(--secondary-text-color);
   text-decoration: none;
 }
 
