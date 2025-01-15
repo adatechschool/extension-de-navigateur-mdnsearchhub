@@ -1,7 +1,7 @@
 const SEARCH_BTN = document.getElementById("search-btn");
 const SEARCH_BAR = document.getElementById("search-bar");
 SEARCH_BAR.focus();
-
+const DEL_BTN = document.getElementById("delete-history")
 
 function openTab(query) {
   let URL = `https://developer.mozilla.org/fr/search?q=${query}&locale=fr&locale=en-US`;
@@ -24,13 +24,15 @@ SEARCH_BAR.addEventListener("keydown", function (event) {
   }
 });
 
-function showConfirmation(message) {
-  const confirmationDiv = document.getElementById("confirmation-message");
-  let confirmationMessage = document.createElement('p')
-  confirmationDiv.appendChild(confirmationMessage)
-  confirmationMessage.classList.add('confirmation')
-  confirmationMessage.textContent = message;
-  setTimeout(() => {
-    confirmationMessage.remove();
-  }, 3000);
-}
+FAV_BTN.addEventListener("click", function () {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    const activeTabUrl = tabs[0].url;
+
+    getFavName(activeTabUrl);
+
+    createFav();
+    addToFav();
+  });
+});
+
+DEL_BTN.addEventListener("click",removeHistory)

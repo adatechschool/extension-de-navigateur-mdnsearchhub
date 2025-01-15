@@ -48,15 +48,15 @@ function removeFavorite(query) {
   createFav();
 }
 
-FAV_BTN.addEventListener("click", function () {
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    const activeTabUrl = tabs[0].url;
-
-    getFavName(activeTabUrl);
-
-    createFav();
-    addToFav();
-  });
-});
+function showConfirmation(message) {
+    const confirmationDiv = document.getElementById("confirmation-message");
+    let confirmationMessage = document.createElement('p')
+    confirmationDiv.appendChild(confirmationMessage)
+    confirmationMessage.classList.add('confirmation')
+    confirmationMessage.textContent = message;
+    setTimeout(() => {
+      confirmationMessage.remove();
+    }, 3000);
+  }
 
 createFav();

@@ -240,3 +240,16 @@ font-size: large;
   align-items: center;
   justify-content: center;
 }
+
+.delete-h{
+  position: absolute;
+  right: 10vw;
+  color: #555;
+  border: none;
+  background: none;
+  font-size: x-large;
+}
+
+.delete-h:hover{
+  color: rgb(192, 4, 4)
+}

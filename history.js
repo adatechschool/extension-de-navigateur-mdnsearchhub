@@ -11,7 +11,7 @@ function addToHistory(query) {
 
 function createHistory() {
     const HISTORY_CONTAINER = document.getElementById("history-container");
-    let ulElement = document.createElement("ul");
+    let ulElement = document.getElementById('history-list');
   
     history.forEach((item) => {
       let link = document.createElement("a");
@@ -26,4 +26,10 @@ function createHistory() {
     });
   }
 
-  createHistory();
+function removeHistory(){
+  history = []
+  document.getElementById('history-list').innerHTML = ''
+  window.localStorage.removeItem("history")
+}
+
+createHistory();
