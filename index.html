@@ -4,37 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mdn Search Hub</title>
+    <script defer src="history.js"></script>
+    <script defer src="favorites.js"></script>
+    <script defer src="dropdown.js"></script>
     <script defer src="script.js"></script>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="title">
     <h1>
       <span class="highlight">M</span>dn<span class="highlight-m underscore">_</span>
       <span class="highlight">S</span>earch <span class="highlight">H</span>ub
     </h1>
+    </div>
 
-    <button id="addFav">Add to Favorite</button>
-
+    
     <div id="search-container">
       <label for="site-search">What are you looking for ?</label>
-      <input type="search" id="search-bar" name="q" placeholder="Search..." />
-      <button id="search-btn">Search</button>
-
+      <div id="search-line">
+        <input type="search" id="search-bar" name="q" placeholder="Search..." />
+        <button id="search-btn">&#128269;</button>
+      </div>
+      
+      <div class="fav-container">
+      <button id="addFav">&starf; Add to Favorites</button>
       <div class="dropdown">
         <button class="btn-top">
-          <h4>Favoris</h4>
+          <h4>Favorites</h4>
           <img src="chevron-down.svg" alt="chevron icon" />
         </button>
         <div class="bloc-links" id="favorites"></div>
       </div>
     </div>
-
-    <div id="confirmation-message" class="confirmation"></div>
-
-    <div id="history-container">
-      <h3 class="history">History</h3>
     </div>
 
-    <div id="favorites-container"></div>
+    <div id="confirmation-message"></div>
+
+    <div id="history-container">
+      <h3 class="history">Search history</h3>
+    </div>
+
 </body>
 </html>
