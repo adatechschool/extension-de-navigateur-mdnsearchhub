@@ -15,3 +15,10 @@ function toggleDropDown() {
     isOpen = false;
   }
 }
+
+document.addEventListener("click", (event) => {
+  if (!dropdown.contains(event.target)) {
+    blockLinks.style.height = "0";
+    isOpen = false;
+  }
+});
